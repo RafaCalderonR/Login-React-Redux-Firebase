@@ -7,7 +7,8 @@ import {Router} from 'react-router';
 import createHistory from 'history/createBrowserHistory';
 import {Provider} from 'react-redux';
 import {createStore, combineReducers} from 'redux';
-import * reducers from './ducks';
+import * as reducers from './ducks';
+import thunk from 'redux-thunk';
 
 const store = createStore(combineReducers({
     ...reducers,
