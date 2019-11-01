@@ -6,7 +6,11 @@ import Register from './containers/auth/Register';
 import { Route } from 'react-router';
 import services from './services'
 
-class App extends React.Component {
+
+interface IAppProps{
+  history: any
+}
+class App extends React.Component<IAppProps>{
 
 
   public state={
@@ -17,6 +21,13 @@ class App extends React.Component {
 
     const {auth} = services
     auth.onAuthStateChanged(user => {
+      if(user){
+        if(location.pathname){
+          if(['/', '/register'].indexOf(location.pathname)> -1){
+              
+          }
+        }
+      }
       this.setState({
         loading:false
       })
@@ -28,7 +39,7 @@ class App extends React.Component {
     const { loading} = this.state
 
   return (
-    loading = 'loading' : <div>
+    loading ? 'loading' : <div>
       <Route exact={true} path='/' component={Login}/>
       <Route exact={true} path='/login' component={Login}/>
       <Route exact={true} path='/register' component={Register}/>
