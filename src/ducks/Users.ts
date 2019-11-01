@@ -11,7 +11,9 @@ export default function reducer(state = {}){
 
 
 export const login = ({email, password}: ILogin) =>
- async(dispatch: Dispatch, getState: ()=> any, { auth}: IServices)=>{
-    const result = await auth.signInWithEmailAndPassword(email, password)
-    console.log(result)
- }
+ async(dispatch: Dispatch, getState: ()=> any, { auth}: IServices)=>
+     await auth.signInWithEmailAndPassword(email, password)
+    
+export const register=({email, password}: ILogin)=>
+async(dispatch: Dispatch, getState: ()=> any, { auth}: IServices)=>
+await auth.createUserWithEmailAndPassword(email, password)

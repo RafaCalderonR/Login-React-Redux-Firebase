@@ -1,24 +1,25 @@
 import * as React from 'react';
 import Card from '../../components/Card'
 import Container from '../../components/Container';
-import Input from '../../components/Input';
-import Button from '../../components/Button';
+import RegisterForm from '../../components/RegisterForm'
 import Title from '../../components/Title';
-import Center from '../../components/Center';
-import {Link} from 'react-router-dom';
+import { register as registerThunk, ILogin } from '../../ducks/Users';
+import { ThunkDispatch } from 'redux-thunk';
+import { connect } from 'react-redux';
 
-class App extends React.Component{
+
+interface IRegisterProps{
+    register:(a: ILogin) => void
+}
+
+class Register extends React.Component<IRegisterProps>{
     public render(){
+        const {register} = this.props
         return(
     <Container>
     <Card>
       <Title>Registro</Title>
-      <Input placeholder='Email' label='Email'/>
-      <Input placeholder='Password' label='Password'/>
-      <Button block={true}>hola</Button>
-      <Center>
-      <Link to='/login'>Iniciar Sesion</Link>
-      </Center>
+      <RegisterForm/>
       
     </Card>
     </Container>
@@ -26,4 +27,11 @@ class App extends React.Component{
     }
 }
 
-export default App;
+
+const mapStateToProps = (state: any) => state;
+
+const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, any>) =>({
+    register: (payload: any) => dispatch(registerThunk(payload))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

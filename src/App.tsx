@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {History} from 'history';
 import './App.css';
 import Login from './containers/auth/Login';
 import Register from './containers/auth/Register';
@@ -8,7 +8,7 @@ import services from './services'
 
 
 interface IAppProps{
-  history: any
+  history: History
 }
 class App extends React.Component<IAppProps>{
 
@@ -26,6 +26,11 @@ class App extends React.Component<IAppProps>{
           if(['/', '/register'].indexOf(location.pathname)> -1){
               const {history} = this.props
               history.push('/app/routexampleapp')
+          }
+        }else{
+          if(/\app\/./.test(location.pathname)){
+            const {history} = this.props
+            history.push('/')
           }
         }
       }
