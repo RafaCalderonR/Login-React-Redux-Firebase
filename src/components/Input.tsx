@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {WrappedFieldProps} from 'redux-form';
+import IInputProps from '../models/components.interface';
 
 const style = {
 
@@ -13,10 +14,7 @@ const style = {
 
 }
 
-interface IInputProps{
-    placeholder?: string
-    label: string
-}
+
 
 
 const Input: React.StatelessComponent<WrappedFieldProps & IInputProps> = props=>{

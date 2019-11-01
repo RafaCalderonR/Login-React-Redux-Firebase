@@ -1,4 +1,5 @@
 import * as React from 'react'
+import IContainerProps from '../models/components.interface';
 
 
 
@@ -16,9 +17,7 @@ const style = (center: boolean): React.CSSProperties => ({
 })
 
 
-interface IContainerProps{
-    center?: boolean
-}
+
 export default class Container extends React.Component<IContainerProps>{
 
     public render(){

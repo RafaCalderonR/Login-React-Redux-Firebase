@@ -1,4 +1,5 @@
 import * as React from 'react'
+import IButtonProps from '../models/components.interface';
 
 
 const style= (block: boolean) => ({
@@ -11,9 +12,6 @@ const style= (block: boolean) => ({
     width: block ? '100%' : undefined,
 })
 
-interface IButtonProps{
-    block?: boolean
-}
 
 
 
