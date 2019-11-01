@@ -7,22 +7,21 @@ import LoginForm from '../../components/LoginForm';
 import {ILogin,login as loginThunk} from '../../ducks/Users';
 
 
-interface ILoginProps{
-    login:(a:ILogin) => void
-}
+interface ILoginProps {
+    login: (a: ILogin) => void
+  }
 class Login extends React.Component<ILoginProps>{
+
     public render(){
-
-        const {login} = this.props;
-
+      const {login} = this.props
         return(
-    <Container>
-    <Card>
-    <Title>Iniciar Sesion</Title>
-    <LoginForm onSubmit={login}/>
-    </Card>
-    </Container>
-        );
+            <Container center={true}>
+            <Card>
+              <Title>Iniciar Sesion</Title>
+              <LoginForm onSubmit={login}/>
+            </Card>
+         </Container>
+        )
     }
 }
 

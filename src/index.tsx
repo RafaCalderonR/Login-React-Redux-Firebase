@@ -10,9 +10,11 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import * as reducers from './ducks';
 import thunk from 'redux-thunk';
 import services from './services';
+import {reducer as formReducer} from 'redux-form'
 
 const store = createStore(combineReducers({
     ...reducers,
+    form: formReducer,
 }), applyMiddleware(thunk.withExtraArgument(services)));
 
 const history = createHistory();
