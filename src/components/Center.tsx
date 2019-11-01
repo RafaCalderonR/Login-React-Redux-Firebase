@@ -1,10 +1,8 @@
 import * as React from 'react'
+import { style } from "../assets/styles/components/center.style";
 
 
-const style = {
-    textAlign: 'center',
-    width: '100%'
-} as React.CSSProperties
+
 
 export default class Center extends React.Component{
     public render(){
