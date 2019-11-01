@@ -1,7 +1,7 @@
 import * as React from "react";
 import Input from "./Input";
 import Button from "./Button";
-import { reduxForm, InjectedFormProps } from "redux-form";
+import { reduxForm, InjectedFormProps, Field } from "redux-form";
 import Center from "./Center";
 import { Link } from "react-router-dom";
 
@@ -10,8 +10,8 @@ class LoginForm extends React.Component<InjectedFormProps> {
         const {handleSubmit} = this.props
         return (
             <form onSubmit={handleSubmit}>
-                <Input placeholder='Email' label='Email' />
-                <Input placeholder='Password' label='Password' />
+                <Field placeholder='Email' name='email' type='email' component={Input} />
+                <Field placeholder='Pasword' name='password' type='password' component={Input}/>
                 <Button block={true}>hola</Button>
                 <Center>
                     <Link to='/register'>Iniciar Sesion</Link>
