@@ -24,7 +24,8 @@ class App extends React.Component<IAppProps>{
       if(user){
         if(location.pathname){
           if(['/', '/register'].indexOf(location.pathname)> -1){
-              
+              const {history} = this.props
+              history.push('/app/routexampleapp')
           }
         }
       }
