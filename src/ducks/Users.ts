@@ -15,5 +15,5 @@ export const login = ({email, password}: ILogin) =>
      await auth.signInWithEmailAndPassword(email, password)
     
 export const register=({email, password}: ILogin)=>
-async(dispatch: Dispatch, getState: ()=> any, { auth}: IServices)=>
-await auth.createUserWithEmailAndPassword(email, password)
+    async(dispatch: Dispatch, getState: ()=> any, { auth}: IServices)=>
+        await auth.createUserWithEmailAndPassword(email, password)
